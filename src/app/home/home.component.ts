@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faCoffee, faFaceLaugh, faFile, faSadCry } from '@fortawesome/free-solid-svg-icons';
+import { TinyMCEService } from '../service/tinymce.service';
 
 @Component({
   selector: 'app-home',
@@ -8,4 +9,5 @@ import { faCoffee, faFaceLaugh, faFile, faSadCry } from '@fortawesome/free-solid
 })
 export class HomeComponent {
   faFile=faFile
+  constructor(private tinymce:TinyMCEService){}
 }

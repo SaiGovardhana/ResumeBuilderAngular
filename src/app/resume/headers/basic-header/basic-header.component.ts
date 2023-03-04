@@ -6,7 +6,7 @@ import { UserModel } from '../../models/Models';
   selector: 'app-basic-header',
   templateUrl: './basic-header.component.html',
   styleUrls: ['./basic-header.component.css',"../../text.css"],
-  encapsulation:ViewEncapsulation.None
+
 })
 export class BasicHeaderComponent {
   faEnvelope=faEnvelope

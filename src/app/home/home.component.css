@@ -4,7 +4,11 @@
     
 }
 
-
+.inst
+{
+    background-color: var(--dark-blue);
+    color: var(--peach);
+}
 .red
 {
     color: var(--red);

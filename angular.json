@@ -26,10 +26,14 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/bootstrap.min.css"
+              "src/assets/bootstrap.min.css",
+              "src/assets/aos.css"
+
             ],
             "scripts": ["src/assets/popper.min.js",
-              "src/assets/bootstrap.min.js"
+              "src/assets/bootstrap.min.js",
+              "src/assets/aos.js",
+              "src/assets/init.js"
               
             ]
           },

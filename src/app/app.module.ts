@@ -18,7 +18,10 @@ import { SignupComponent } from './signup/signup.component';
 import { SignupmodalComponent } from './signup/signupmodal/signupmodal.component';
 import { NgbModalModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from "@angular/common/http"
+import {HttpClientModule} from "@angular/common/http";
+import { SigninComponent } from './signin/signin.component';
+import { SigninmodalComponent } from './signin/signinmodal/signinmodal.component'
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [SafeHtmlPipe,
     AppComponent,
@@ -30,7 +33,9 @@ import {HttpClientModule} from "@angular/common/http"
     BasicHeaderComponent,
     BasicTemplateComponent,
     SignupComponent,
-    SignupmodalComponent
+    SignupmodalComponent,
+    SigninComponent,
+    SigninmodalComponent
   ],
   imports: [DragulaModule.forRoot(),
     BrowserModule,
@@ -41,7 +46,7 @@ import {HttpClientModule} from "@angular/common/http"
     NgbPopoverModule,FormsModule,ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

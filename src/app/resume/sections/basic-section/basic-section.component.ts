@@ -5,7 +5,7 @@ import { BasicSectionModel } from '../../models/Models';
   selector: 'app-basic-section',
   templateUrl: './basic-section.component.html',
   styleUrls: ['./basic-section.component.css','../../text.css'],
-  encapsulation:ViewEncapsulation.None
+
 })
 export class BasicSectionComponent 
 {

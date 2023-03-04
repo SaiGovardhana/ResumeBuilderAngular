@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -9,10 +10,16 @@ import { AuthService } from '../service/auth.service';
 export class NavbarComponent {
 
   appName="ResumeToGo"
-  loggedInNavs=["Create Resume","My Resumes","Dashboard"]
-  loggedOutNavs=["Sign In","Sign Up"]
-  constructor(public authStore:AuthService)
+  loggedInNavs=[{name:"Create Resume",link:"/createResume"},{name:"My Resumes",link:'/myresumes'},{name:"Dashboard",link:"/dashboard"}]
+  loggedOutNavs=[{name:"Sign In",link:'/signin'},{name:"Sign Up",link:'/signup'}]
+  constructor(public authStore:AuthService,private router:Router)
   {
 
+  }
+
+  logout()
+  {
+    this.authStore.logout();
+    this.router.navigateByUrl("/");
   }
 }

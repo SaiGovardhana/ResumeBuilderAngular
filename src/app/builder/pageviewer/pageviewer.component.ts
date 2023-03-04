@@ -7,7 +7,7 @@ import { sectionModel } from 'src/app/sampleData/test';
   selector: 'app-pageviewer',
   templateUrl: './pageviewer.component.html',
   styleUrls: ['./pageviewer.component.css'],
-  encapsulation:ViewEncapsulation.None
+ 
 })
 export class PageviewerComponent 
 {
