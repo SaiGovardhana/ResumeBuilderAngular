@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { SigninComponent } from './signin/signin.component';
 import { SigninmodalComponent } from './signin/signinmodal/signinmodal.component'
 import { CookieService } from 'ngx-cookie-service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [SafeHtmlPipe,
     AppComponent,
@@ -35,7 +36,8 @@ import { CookieService } from 'ngx-cookie-service';
     SignupComponent,
     SignupmodalComponent,
     SigninComponent,
-    SigninmodalComponent
+    SigninmodalComponent,
+    DashboardComponent
   ],
   imports: [DragulaModule.forRoot(),
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuilderComponent } from './builder/builder.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { LoggedInGuard } from './routeguards/LoggedInGuard';
 import { LoggedOutGuard } from './routeguards/LoggedOutGuard';
@@ -8,9 +9,9 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [{path:"",pathMatch:"full",component:HomeComponent,canActivate:[LoggedOutGuard]},
-{path:"dashboard",component:BuilderComponent,canActivate:[LoggedInGuard]},
+{path:"dashboard",component:DashboardComponent,canActivate:[LoggedInGuard]},
 {path:"signup",component:SignupComponent,canActivate:[LoggedOutGuard]},
-{path:'signin',component:SigninComponent,canActivate:[LoggedOutGuard]}
+{path:'signin',component:SigninComponent,canActivate:[LoggedOutGuard]},
 ];
 
 @NgModule({

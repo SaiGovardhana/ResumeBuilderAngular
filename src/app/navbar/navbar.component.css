@@ -24,7 +24,7 @@ nav *
     color: white !important;
 }
 
-.mybut:hover,.mybut:active,.mybut:focus
+.mybut:hover,.mybut:active
 {
     background-color: var(--peach);
     color: var(--dark-blue);

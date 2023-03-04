@@ -27,7 +27,7 @@ div{
     background-color: var(--peach);
 }
 
-.mybut:hover,.mybut:active,.mybut:focus
+.mybut:hover,.mybut:active
 {
     color: var(--peach);
     background-color: var(--dark-blue);
