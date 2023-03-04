@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TinyMCEService } from './service/tinymce.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'resumebuilder';
+
+  constructor(private tinyService:TinyMCEService)
+  {
+    setTimeout(()=>tinyService.update(),200);
+  }
+
 }

@@ -3,14 +3,43 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BuilderComponent } from './builder/builder.component';
+import { PageviewerComponent } from './builder/pageviewer/pageviewer.component';
+import { BasicSectionComponent } from './resume/sections/basic-section/basic-section.component';
+import { BasicHeaderComponent } from './resume/headers/basic-header/basic-header.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { BasicTemplateComponent } from './resume/templates/basic-template/basic-template.component';
+import { SafeHtmlPipe } from './pipes/SafePipe.pipe';
+import { DragulaModule } from 'ng2-dragula';
+import { SignupComponent } from './signup/signup.component';
+import { SignupmodalComponent } from './signup/signupmodal/signupmodal.component';
+import { NgbModalModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http"
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [SafeHtmlPipe,
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    BuilderComponent,
+    PageviewerComponent,
+    BasicSectionComponent,
+    BasicHeaderComponent,
+    BasicTemplateComponent,
+    SignupComponent,
+    SignupmodalComponent
   ],
-  imports: [
+  imports: [DragulaModule.forRoot(),
     BrowserModule,
-    AppRoutingModule
+    FontAwesomeModule,
+    EditorModule,
+    AppRoutingModule,
+    NgbModalModule,
+    NgbPopoverModule,FormsModule,ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

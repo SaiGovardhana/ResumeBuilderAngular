@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg  shadow-lg">
+    <div class="container-fluid">
+        
+            <a class="navbar-brand fw-bolder fs-2" >ResumeTo<span>Go</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                
+                <div *ngIf="(authStore.currentUser$ | async) as curUser" class="ms-auto navbar-nav">
+                    
+                    <ng-container *ngIf="curUser.loggedIn else NotLoggedIn">
+                        <a *ngFor="let nav of loggedInNavs" class="nav-link " >{{nav}}</a>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              {{curUser.name}}
+                            </a>
+                            <ul class="fix dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                              <li *ngFor="let nav of loggedInNavs"><a class="dropdown-item" >{{nav}}</a></li>
+                              <li ><a class="dropdown-item" >Log Out</a></li>
+                            </ul>
+                          </li>
+                    </ng-container>
+                    
+                    <ng-template #NotLoggedIn>
+                        <a *ngFor="let nav of loggedOutNavs"  class="mybut nav-link btn btn-outline-danger me-3 fw-bold" >{{nav}}</a>
+                    </ng-template>
+                    
+                </div>
+            </div>
+       
+    </div>
+  </nav>

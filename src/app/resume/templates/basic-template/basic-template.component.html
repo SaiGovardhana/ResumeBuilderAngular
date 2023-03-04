@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <div class="row">
+        <app-basic-header class="col-12 p-0" [userModel]="userModel"></app-basic-header>
+        <app-basic-section *ngFor="let section of sections" [sectionModel]="section" ></app-basic-section>
+    </div>
+</div>
