@@ -1,7 +1,7 @@
 <div *ngIf="state=='success'" >
-<div *ngIf="resumes.length>0;else nothing" class="d-flex flex-column align-items-center mt-4">
-    <div *ngFor="let resume of resumes">
-        <div *ngIf="resume['state']=='success'" class="card shadow-lg  mb-3" style="max-width: 18rem;">
+<div *ngIf="resumes.length>0;else nothing" class="d-flex    flex-column align-items-stretch mt-4">
+    <ng-container *ngFor="let resume of resumes">
+        <div *ngIf="resume['state']=='success'" class="card shadow-lg mx-auto    mb-3" style="width: 18rem;">
             <div class="card-header bg-success text-white">Resume Is Ready</div>
             <div class="card-body">
               <h5 class="card-title">{{resume["resumename"]}}</h5>
@@ -10,7 +10,7 @@
             </div>
             
           </div>
-          <div *ngIf="resume['state']=='pending'" class="card shadow-lg  mb-3" style="max-width: 18rem;">
+          <div *ngIf="resume['state']=='pending'" class="card shadow-lg mx-auto  mb-3" style="width: 18rem;">
             <div class="card-header bg-warning text-white">Generating resume</div>
             <div class="card-body">
               <h5 class="card-title">{{resume["resumename"]}}</h5>
@@ -19,7 +19,7 @@
             </div>
             
           </div>
-          <div *ngIf="resume['state']=='failure'" class="card shadow-lg  mb-3" style="max-width: 18rem;">
+          <div *ngIf="resume['state']=='failure'" class="card shadow-lg mx-auto   mb-3" style="width: 18rem;">
             <div class="card-header bg-danger text-white">Failed To Generate Resume</div>
             <div class="card-body">
               <h5 class="card-title">{{resume["resumename"]}}</h5>
@@ -29,7 +29,7 @@
             
           </div>
 
-    </div>
+    </ng-container>
     
 </div>
 <ng-template #nothing style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">

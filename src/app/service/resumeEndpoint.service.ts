@@ -23,6 +23,14 @@ export class ResumeEndpointService
             ));
         }
 
+        createResumeOpenAI(resumeName:string,resumeDescription:string):Observable<{success:boolean,message:string}>
+        {
+            return this.http.post<{success:boolean,message:string}>('/api/resume/createResumeOpenAI',{resumename:resumeName,resumedescription:resumeDescription}).pipe(catchError(
+
+                err=>{return of({success:false,message:"An Error Occure"})}
+            ));
+        }
+
         getMyResumes():Observable<{success:boolean,data:{[key:string]:string}[]}>
         {
             return this.http.get<{success:boolean,data:{[key:string]:string}[]}>('/api/resume/myResumes')

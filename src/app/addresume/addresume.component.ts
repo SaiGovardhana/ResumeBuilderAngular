@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -16,12 +16,15 @@ export class AddresumeComponent implements OnInit,OnDestroy
   resumeName=new FormControl("",[Validators.required])
   email=new FormControl("",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
   name=new FormControl("",Validators.required)
-
+  openai=new FormControl();
   @ViewChild(SigninmodalComponent)
     modalComponent!:SigninmodalComponent
+  @ViewChild('description',{read:ElementRef})
+    resumeDescription!:ElementRef
+
 
   httpSubscription$!:Subscription
-  constructor(private router:Router,private authService:AuthService,private resumeService:ResumeEndpointService)
+  constructor(private router:Router,public authService:AuthService,private resumeService:ResumeEndpointService)
   {
 
   }
@@ -29,6 +32,7 @@ export class AddresumeComponent implements OnInit,OnDestroy
   ngOnInit(): void {
     this.email.setValue(this.authService.getCurrentUser().email)
     this.name.setValue(this.authService.getCurrentUser().name)
+    setTimeout(()=>console.log(this.openai.value),1000)
   }
 
   ngOnDestroy(): void 
@@ -42,6 +46,7 @@ export class AddresumeComponent implements OnInit,OnDestroy
     
     if(this.email.valid && this.name.valid && this.resumeName.valid)
     {
+      if(this.openai.value!=true){
       this.modalComponent.open('loading');
       this.httpSubscription$=this.resumeService.createResume(this.resumeName.value as string,this.name.value as string,this.email.value as string )
       .subscribe(data=>
@@ -57,7 +62,26 @@ export class AddresumeComponent implements OnInit,OnDestroy
             this.modalComponent.open('failure')
           }
         });
-      ;
+      ;}
+      else
+      {
+        this.httpSubscription$=this.resumeService.createResumeOpenAI(this.resumeName.value as string,this.resumeDescription.nativeElement.value as string)
+        .subscribe(data=>
+          {
+            if(data["success"])
+            { this.modalComponent.message="Added The Resume";
+              this.modalComponent.open('success');
+              setTimeout(()=>this.router.navigateByUrl('/dashboard'),200);
+            }
+            else
+            {
+              this.modalComponent.message="Couldn't Add Resume";
+              this.modalComponent.open('failure')
+            }
+          });
+
+
+      }
     }
 
     else
