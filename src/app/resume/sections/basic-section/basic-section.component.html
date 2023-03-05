@@ -1,4 +1,5 @@
-<div class="p-4">
-    <div class="editable"><div [outerHTML]="sectionModel.sectionName | safeHtml"></div></div>
-    <div class="editable"><div  [outerHTML]="sectionModel.sectionContent"></div></div>
+<div class="p-2">
+   
+    <div class="editable section-header"><div [outerHTML]="sectionModel.headerContent| safeHtml"></div></div>
+    <div class="editable"><div  [outerHTML]="sectionModel.sectionContent | safeHtml"></div></div>
 </div>

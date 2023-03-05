@@ -38,7 +38,7 @@ export class AuthService
                 {
                     console.log("Added user to local storage");
                     let resData=res["data"];
-                    let user={name:resData["name"],email:res["email"],loggedIn:true}
+                    let user={name:resData["name"],email:resData["email"],loggedIn:true}
                     localStorage.setItem("user",JSON.stringify(user));
             
                     this.subject$.next(user);
@@ -58,7 +58,7 @@ export class AuthService
                     {
                         console.log("Added user to local storage");
                         let resData=res["data"];
-                        let user={name:resData["name"],email:res["email"],loggedIn:true}
+                        let user={name:resData["name"],email:resData["email"],loggedIn:true}
                         localStorage.setItem("user",JSON.stringify(user));
                 
                         this.subject$.next(user);

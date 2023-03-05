@@ -2,14 +2,16 @@
     <div class="container-fluid p-3 basic-header">
         <div class="row">
             <div class="col-7">
-                <div class="editable" [innerHTML]="userModel.name?userModel.name:'Name' |safeHtml"></div>
-                <h5 class="editable fw-bold">{{userModel.designation}}</h5>
+                <div class="editable" [innerHTML]="headerModel['name']!=null?headerModel['name'].headerContent :'Name' | safeHtml"></div>
+                <div class="editable" [innerHTML]="headerModel['profession']!=null?headerModel['profession'].headerContent :'Profession' | safeHtml"></div>
             </div>
             <div class="col-5">
+                <!--
                 <div class="d-flex flex-column justify-content-center mt-3 align-items-end justify-content-center">
-                    <h6 class="fw-bolder editable"> <fa-icon [icon]="faEnvelope"></fa-icon> {{userModel.email}}</h6>
-                    <h6 class="fw-bolder editable"> <fa-icon [icon]="faPhone"></fa-icon> {{userModel.phone}}</h6>
+                    <h6 class="fw-bolder editable"> <fa-icon [icon]="faEnvelope"></fa-icon> {{headerModel['email']}}</h6>
+                    <h6 class="fw-bolder editable"> <fa-icon [icon]="faPhone"></fa-icon> {{headerModel['email']}}</h6>
                 </div>
+                -->
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ResumeModel } from 'src/app/models/httpmodels';
 import { BasicSectionModel, UserModel } from '../../models/Models';
 
 @Component({
@@ -8,9 +9,9 @@ import { BasicSectionModel, UserModel } from '../../models/Models';
 })
 export class BasicTemplateComponent {
   @Input()
-    userModel!:UserModel
+  resumeModel!:ResumeModel
+  constructor()
+  {
 
-  @Input()
-    sections!:BasicSectionModel[]
-
+  }
 }

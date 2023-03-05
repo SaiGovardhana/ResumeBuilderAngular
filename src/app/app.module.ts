@@ -23,6 +23,8 @@ import { SigninComponent } from './signin/signin.component';
 import { SigninmodalComponent } from './signin/signinmodal/signinmodal.component'
 import { CookieService } from 'ngx-cookie-service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddresumeComponent } from './addresume/addresume.component';
+import { MyresumesComponent } from './myresumes/myresumes.component';
 @NgModule({
   declarations: [SafeHtmlPipe,
     AppComponent,
@@ -37,7 +39,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignupmodalComponent,
     SigninComponent,
     SigninmodalComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddresumeComponent,
+    MyresumesComponent
   ],
   imports: [DragulaModule.forRoot(),
     BrowserModule,

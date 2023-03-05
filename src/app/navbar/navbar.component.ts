@@ -10,7 +10,7 @@ import { AuthService } from '../service/auth.service';
 export class NavbarComponent {
 
   appName="ResumeToGo"
-  loggedInNavs=[{name:"Create Resume",link:"/createResume"},{name:"My Resumes",link:'/myresumes'},{name:"Dashboard",link:"/dashboard"}]
+  loggedInNavs=[{name:"Create Resume",link:"/user/createResume"},{name:"My Resumes",link:'/user/myResumes'},{name:"Dashboard",link:"/dashboard"}]
   loggedOutNavs=[{name:"Sign In",link:'/signin'},{name:"Sign Up",link:'/signup'}]
   constructor(public authStore:AuthService,private router:Router)
   {

@@ -1,5 +1,21 @@
-<div class="d-flex justify-content-center   m-5">
+<div *ngIf="state=='success'" class="d-flex justify-content-center   m-5">
     <div class="page-container shadow-lg overflow-auto">
-        <app-basic-template [sections]="sections" [userModel]="userModel" class="page"></app-basic-template>
+        <app-basic-template [resumeModel]="resumeModel"  class="page"></app-basic-template>
     </div>
 </div>
+
+<div *ngIf="state=='loading'" style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">
+    <div class="row  justify-content-center">
+    <div style="width: 5rem; height: 5rem;" class=" m-auto spinner-border m-5 h1" role="status">
+      <span class="h1  sr-only">Loading...</span>
+    </div>
+    <h1 class="text-center mt-5 ">Fetching Data</h1>
+  </div>
+  </div>
+
+  <ng-container *ngIf="state=='failure'" style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">
+    <div style="height:80vh" class=" d-flex flex-column justify-content-center my-auto">
+      <i class=' mt-5 col-12 fa-solid fa-5x  fa text-center  fa-warning'></i>
+      <h1 class="h1  text-center mt-">Seems Like An Error :(</h1>
+  </div>
+  </ng-container>

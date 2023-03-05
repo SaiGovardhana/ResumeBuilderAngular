@@ -1,5 +1,7 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { BasicSectionModel } from '../../models/Models';
+import { Component, Input, OnInit} from '@angular/core';
+import { DragulaService } from 'ng2-dragula';
+import { SectionModel } from 'src/app/models/httpmodels';
+
 
 @Component({
   selector: 'app-basic-section',
@@ -7,8 +9,18 @@ import { BasicSectionModel } from '../../models/Models';
   styleUrls: ['./basic-section.component.css','../../text.css'],
 
 })
-export class BasicSectionComponent 
+export class BasicSectionComponent  implements OnInit
 {
   @Input()
-    sectionModel!:BasicSectionModel
+    sectionModel!:SectionModel
+    constructor(private dragula:DragulaService)
+    {
+    
+    }
+
+    ngOnInit(): void {
+  
+    }
+
+
 }
