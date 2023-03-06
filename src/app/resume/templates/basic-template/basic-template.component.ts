@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
 import { ResumeModel, SectionModel } from 'src/app/models/httpmodels';
+import { TinyMCEService } from 'src/app/service/tinymce.service';
 import { BasicHeaderComponent } from '../../headers/basic-header/basic-header.component';
 import { BasicSectionModel, UserModel } from '../../models/Models';
 import { BasicSectionComponent } from '../../sections/basic-section/basic-section.component';
@@ -10,7 +11,7 @@ import { BasicSectionComponent } from '../../sections/basic-section/basic-sectio
   templateUrl: './basic-template.component.html',
   styleUrls: ['./basic-template.component.css']
 })
-export class BasicTemplateComponent implements OnInit {
+export class BasicTemplateComponent implements OnInit,OnDestroy {
   @Input()
   resumeModel!:ResumeModel
 
@@ -20,18 +21,31 @@ export class BasicTemplateComponent implements OnInit {
   @ViewChildren(BasicSectionComponent)
     basicSections!:QueryList<BasicSectionComponent>
 
+  @Input()
+  isDraggable!:boolean;
 
-  constructor(private dragula:DragulaService)
+  constructor(private dragula:DragulaService,private tiny:TinyMCEService)
   {
       
   }
 
+
+
   ngOnInit()
   {
-    this.dragula.createGroup('sectiondrag',{removeOnSpill:true
-  
+    let ops=this.dragula.createGroup('sectiondrag',{removeOnSpill:true,
+      moves:()=>this.isDraggable
+      
     });
+
+    
+
+
   }
+  ngOnDestroy(): void {
+    this.dragula.destroy('sectiondrag');
+  }
+  
   serialize():ResumeModel
   { let headers=this.basicHeaderComponent.serialize();
     let sections:SectionModel[]=[];

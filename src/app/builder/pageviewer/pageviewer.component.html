@@ -4,6 +4,15 @@
     <label for="customRange1" class="form-label  text-center">Zoom</label>
     <input min="20" value="100" max="150" #zoom type="range" class="form-range" id="customRange1">
   </div>
+  <div class="d-flex align-items-center ">
+      <h6 class="mx-2">Edit Mode</h6>
+      <div class="form-check  form-switch">
+        
+        <input (input)="switchMode()"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        
+      </div>
+      <h6 class="mx-2">Drag Mode</h6>
+    </div>
   <div class="d-flex">
 
     <button (click)="addSection()" class="btn mybut mx-2">Add New Section</button>
@@ -15,7 +24,7 @@
 
 <div *ngIf="state=='success'" class="d-flex viewportoverflowfix justify-content-center   m-5">
     <div  class="page-container shadow-lg ">
-        <app-basic-template  [style]="{'-ms-zoom':zoom.valueAsNumber/100,'zoom':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page shadow-lg " ></app-basic-template>
+        <app-basic-template [isDraggable]="isDraggable"  [style]="{'-ms-zoom':zoom.valueAsNumber/100,'zoom':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page shadow-lg " ></app-basic-template>
     </div>
 </div>
 

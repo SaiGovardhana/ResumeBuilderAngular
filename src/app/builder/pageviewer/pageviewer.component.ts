@@ -18,7 +18,7 @@ import { ToastService } from 'src/app/service/toast.service';
 export class PageviewerComponent implements OnInit,OnDestroy
 { state='loading'
   resumeModel!:ResumeModel
-
+  isDraggable=false;
   httpSubscription$!:Subscription
   @ViewChild('resume')
     resume!:BasicTemplateComponent
@@ -32,6 +32,22 @@ export class PageviewerComponent implements OnInit,OnDestroy
 
     this.resumeModel.sections.push({"name":"sample",headerContent:"<h2 style='text-align:center;text-decoration:underline'>Sample Header</h2>",sectionContent:"<h3>A Sample Content</h3>"})
       this.tinymce.update()
+  }
+
+  switchMode()
+  {
+
+    this.isDraggable=!this.isDraggable
+    if(this.isDraggable)
+    { 
+      this.toast.showInfo("Dragging Enabled","You Can Now Drag Section Components For Rearrangment!");
+      this.tinymce.remove();
+    }
+    else
+    {
+      this.toast.showInfo("Text Editing Enabled","You Can Now Edit Text !");
+      this.tinymce.update();
+    }
   }
   save()
   { this.toast.showInfo("Resume Saving","Waiting For Response!!");
@@ -61,6 +77,7 @@ export class PageviewerComponent implements OnInit,OnDestroy
 
 
   ngOnInit(): void {
+    this.tinymce.update()
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
     this.resumeService.getResume(resumeId as string).subscribe
     (

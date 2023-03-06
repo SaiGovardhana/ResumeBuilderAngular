@@ -2,8 +2,8 @@
     <div class="row">
         <app-basic-header  class="col-12 p-0" [headerModel]="resumeModel['headers']"></app-basic-header>
         
-        <div dragula="sectiondrag" [(dragulaModel)]="resumeModel['sections']" >
-            <app-basic-section  *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
+        <div dragula="sectiondrag"  [(dragulaModel)]="resumeModel['sections']" >
+            <app-basic-section   *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
         </div>
     </div>
     

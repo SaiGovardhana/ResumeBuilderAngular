@@ -58,7 +58,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgbPopoverModule,FormsModule,ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({maxOpened:1,newestOnTop:true,autoDismiss:true})
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

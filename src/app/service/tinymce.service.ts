@@ -24,5 +24,8 @@ export class TinyMCEService
         tinymce.remove();
         setTimeout(()=>tinymce.init(this.option),100);
     }
-
+    remove()
+    {
+        tinymce.remove()
+    }
 }
