@@ -1,4 +1,17 @@
-
+.toolbar
+{
+    background-color: var(--dark-blue);
+    position: sticky;
+    top: 0;
+    color: var(--peach);
+    z-index: 100;
+}
+.mybut,.mybut:hover
+{
+    background-color: var(--peach);
+    font-weight: bolder;
+    color: black !important;
+}
 .page
 {   width: 100%;
     width: 210mm;

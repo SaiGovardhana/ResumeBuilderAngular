@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TinyMCEService } from '../service/tinymce.service';
+import { PageviewerComponent } from './pageviewer/pageviewer.component';
 
 @Component({
   selector: 'app-builder',
@@ -8,5 +9,8 @@ import { TinyMCEService } from '../service/tinymce.service';
   
 })
 export class BuilderComponent {
+@ViewChild(PageviewerComponent)
+  pageViewer!:PageviewerComponent
+
 
 }

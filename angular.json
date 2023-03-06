@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.css",
               "src/assets/bootstrap.min.css",
-              "src/assets/aos.css"
+              "src/assets/aos.css",
+              "node_modules/ngx-toastr/toastr.css"
 
             ],
             "scripts": ["src/assets/popper.min.js",

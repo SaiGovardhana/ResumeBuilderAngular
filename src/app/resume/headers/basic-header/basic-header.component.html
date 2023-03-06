@@ -1,17 +1,24 @@
 
-    <div class="container-fluid p-3 basic-header">
+    <div (click)="serialize()"  class="container-fluid p-3 basic-header">
         <div class="row">
             <div class="col-7">
-                <div class="editable" [innerHTML]="headerModel['name']!=null?headerModel['name'].headerContent :'Name' | safeHtml"></div>
-                <div class="editable" [innerHTML]="headerModel['profession']!=null?headerModel['profession'].headerContent :'Profession' | safeHtml"></div>
+                <div #header *ngIf="headerModel['name']" class="editable" id="name" [innerHTML]="headerModel['name'].headerContent | safeHtml"></div>
+                <div #header *ngIf="headerModel['profession']" class="editable" id="profession" [innerHTML]="headerModel['profession'].headerContent| safeHtml"></div>
             </div>
             <div class="col-5">
-                <!--
+                
                 <div class="d-flex flex-column justify-content-center mt-3 align-items-end justify-content-center">
-                    <h6 class="fw-bolder editable"> <fa-icon [icon]="faEnvelope"></fa-icon> {{headerModel['email']}}</h6>
-                    <h6 class="fw-bolder editable"> <fa-icon [icon]="faPhone"></fa-icon> {{headerModel['email']}}</h6>
-                </div>
-                -->
+                        <h6 *ngIf="headerModel['email']" class="fw-bolder d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faEnvelope"></fa-icon>
+                           <div class="editable" id="email" #header [innerHTML]="headerModel['email'].headerContent"></div>
+                        </h6>
+
+                        <h6 *ngIf="headerModel['phone']" class="fw-bolder d-flex align-items-baseline">
+                            <fa-icon class="me-2" [icon]="faPhone"></fa-icon>
+                           <div class="editable" id="phone" #header [innerHTML]="headerModel['phone'].headerContent"></div>
+                        </h6>
+                 </div>
+            
             </div>
         </div>
     </div>

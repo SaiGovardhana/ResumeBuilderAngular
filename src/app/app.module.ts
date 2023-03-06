@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,6 +24,12 @@ import { CookieService } from 'ngx-cookie-service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddresumeComponent } from './addresume/addresume.component';
 import { MyresumesComponent } from './myresumes/myresumes.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
+
 @NgModule({
   declarations: [SafeHtmlPipe,
     AppComponent,
@@ -41,7 +46,8 @@ import { MyresumesComponent } from './myresumes/myresumes.component';
     SigninmodalComponent,
     DashboardComponent,
     AddresumeComponent,
-    MyresumesComponent
+    MyresumesComponent,
+
   ],
   imports: [DragulaModule.forRoot(),
     BrowserModule,
@@ -50,7 +56,9 @@ import { MyresumesComponent } from './myresumes/myresumes.component';
     AppRoutingModule,
     NgbModalModule,
     NgbPopoverModule,FormsModule,ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

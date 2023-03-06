@@ -1,5 +1,5 @@
 <div class="p-2">
    
-    <div class="editable section-header"><div [outerHTML]="sectionModel.headerContent| safeHtml"></div></div>
-    <div class="editable"><div  [outerHTML]="sectionModel.sectionContent | safeHtml"></div></div>
+    <div #sectionheader [id]="sectionModel.name" class="editable" [innerHTML]="sectionModel.headerContent| safeHtml" ></div>
+    <div #sectioncontent  class="editable" [innerHTML]="sectionModel.sectionContent | safeHtml"></div>
 </div>

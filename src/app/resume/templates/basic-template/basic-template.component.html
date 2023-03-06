@@ -1,9 +1,8 @@
-
-<div *ngIf="resumeModel" class="container-fluid">
+<div  *ngIf="resumeModel" class="container-fluid">
     <div class="row">
-        <app-basic-header class="col-12 p-0" [headerModel]="resumeModel['headers']"></app-basic-header>
+        <app-basic-header  class="col-12 p-0" [headerModel]="resumeModel['headers']"></app-basic-header>
         
-        <div dragula="xyz" [(dragulaModel)]="resumeModel['sections']">
+        <div dragula="sectiondrag" [(dragulaModel)]="resumeModel['sections']" >
             <app-basic-section  *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
         </div>
     </div>

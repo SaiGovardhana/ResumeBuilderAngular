@@ -1,7 +1,8 @@
 nav
 {
     background-color: var(--dark-blue) !important;
-       
+
+    top: 0px;
 }
 :host{
     z-index: 100;

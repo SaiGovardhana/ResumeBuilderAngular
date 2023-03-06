@@ -1,8 +1,19 @@
+<div class="toolbar justify-content-between p-2 d-flex">
+  <h3 style="text-decoration: underline;">Inline Editor</h3>
+  <div class="d-flex">
+    <button (click)="addSection()" class="btn mybut mx-2">Add New Section</button>
+    <button (click)="save()" class="btn mybut mx-2">Save</button>
+  </div>
+</div>
+
+
 <div *ngIf="state=='success'" class="d-flex justify-content-center   m-5">
     <div class="page-container shadow-lg overflow-auto">
-        <app-basic-template [resumeModel]="resumeModel"  class="page"></app-basic-template>
+        <app-basic-template #resume [resumeModel]="resumeModel"  class="page"></app-basic-template>
     </div>
 </div>
+
+
 
 <div *ngIf="state=='loading'" style="color: var(--dark-blue);" class="container-fluid mt-5 p-5">
     <div class="row  justify-content-center">

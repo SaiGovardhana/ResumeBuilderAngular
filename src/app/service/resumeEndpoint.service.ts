@@ -44,4 +44,10 @@ export class ResumeEndpointService
             return this.http.get<{success:boolean,data:{resumeName:string,resumeModel:ResumeModel}}>(`/api/resume/getResume/${resumeId}`)
             .pipe(catchError(err=>of({success:false})))
         }
+
+        updateResume(resumeId:string,resumeModel:ResumeModel):Observable<{success:boolean}>
+        {
+            return this.http.post<{success:boolean}>('/api/resume/updateResume',{resumeId:resumeId,resumeModel:resumeModel})
+                .pipe(catchError(err=>of({success:false})));
+        }
 }
