@@ -18,6 +18,7 @@ import { ToastService } from 'src/app/service/toast.service';
 export class PageviewerComponent implements OnInit,OnDestroy
 { state='loading'
   resumeModel!:ResumeModel
+
   httpSubscription$!:Subscription
   @ViewChild('resume')
     resume!:BasicTemplateComponent
@@ -55,6 +56,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
       )
 
   }
+
+
+
 
   ngOnInit(): void {
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");

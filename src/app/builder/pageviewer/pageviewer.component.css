@@ -6,22 +6,33 @@
     color: var(--peach);
     z-index: 100;
 }
+
 .mybut,.mybut:hover
 {
     background-color: var(--peach);
     font-weight: bolder;
     color: black !important;
 }
-.page
-{   width: 100%;
-    width: 210mm;
 
-    min-width: 210mm !important;
+
+
+.page
+{   
+    
+
+    width: 210mm !important;
     min-height: 297mm !important;
     background-color: white;
-    overflow: auto;
+ 
     display: block;
 }
+
+.page-container
+{
+
+    overflow: auto;
+}
+
 
 h1
 {
