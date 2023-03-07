@@ -5,6 +5,7 @@
     top: 0;
     color: var(--peach);
     z-index: 99;
+    overflow: hidden;
 }
 
 .mybut,.mybut:hover
@@ -19,19 +20,22 @@
 .page
 {   
     
-
+    box-sizing: content-box !important;
     width: 210mm !important;
     min-height: 297mm !important;
     background-color: white;
- 
+    transform-origin: 50% 0% ;
     display: block;
+
 }
 
 .page-container
 {
-
-    overflow: auto;
+  
+  box-sizing: content-box !important;
+  overflow: auto;
 }
+
 
 
 h1

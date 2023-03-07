@@ -12,6 +12,8 @@ body
     background-color: var(--peach) !important;
 }
 
+
+/*
 /* in-flight clone */
 .gu-mirror {
     position: fixed !important;
