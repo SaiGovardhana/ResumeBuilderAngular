@@ -3,8 +3,9 @@
  :root
 {
     --light-blue:#4E6E81;
-    --peach:#F9DBBB;
-    --dark-blue: #2E3840;
+    --peach:	#F0F0F0;
+    --dark-blue: var(--bs-danger);
+
     --red:#FF0303;
 } 
 

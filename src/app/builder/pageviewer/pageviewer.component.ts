@@ -2,8 +2,10 @@
 import { Component, OnDestroy, OnInit, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ResumeModel } from 'src/app/models/httpmodels';
+import { ResumeModel, ResumeOptionsModel } from 'src/app/models/httpmodels';
+import { BasicHeaderComponent } from 'src/app/resume/headers/basic-header/basic-header.component';
 import { BasicSectionModel, UserModel } from 'src/app/resume/models/Models';
+import { BasicSectionComponent } from 'src/app/resume/sections/basic-section/basic-section.component';
 import { BasicTemplateComponent } from 'src/app/resume/templates/basic-template/basic-template.component';
 import { ResumeEndpointService } from 'src/app/service/resumeEndpoint.service';
 import { TinyMCEService } from 'src/app/service/tinymce.service';
@@ -20,6 +22,10 @@ export class PageviewerComponent implements OnInit,OnDestroy
   resumeModel!:ResumeModel
   isDraggable=false;
   httpSubscription$!:Subscription
+
+
+
+  resumeOptions:ResumeOptionsModel={bodyBackgroundColor:'#ffffff',headerBackgroundColor:'#dc3545',headerTextColor:"#ffffff",bodyTextColor:'#000000'}
   @ViewChild('resume')
     resume!:BasicTemplateComponent
   constructor(private toast:ToastService,private tinymce:TinyMCEService,private resumeService:ResumeEndpointService,private router:Router)
@@ -39,7 +45,7 @@ export class PageviewerComponent implements OnInit,OnDestroy
 
     this.isDraggable=!this.isDraggable
     if(this.isDraggable)
-    { 
+    { this.resumeModel=this.resume.serialize()
       this.toast.showInfo("Dragging Enabled","You Can Now Drag Section Components For Rearrangment!");
       this.tinymce.remove();
     }
@@ -52,7 +58,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
   save()
   { this.toast.showInfo("Resume Saving","Waiting For Response!!");
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
-    this.resumeService.updateResume(resumeId as string,this.resume.serialize())
+    let curResumeSnapShot=this.resume.serialize();
+    curResumeSnapShot.resumeOptions=this.resumeOptions;
+    this.resumeService.updateResume(resumeId as string,curResumeSnapShot)
       .subscribe(
 
         (data)=>
@@ -86,7 +94,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
       (data)=>
       {
         if(data['success'])
-        { 
+        { if(data['data']?.resumeModel?.resumeOptions)
+            this.resumeOptions=data['data']?.resumeModel?.resumeOptions;
+
           this.resumeModel=data["data"]?.resumeModel as ResumeModel
           this.state='success'
           this.tinymce.update();
@@ -104,5 +114,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
       this.httpSubscription$.unsubscribe()
     this.toast.dismiss()
   }
+
+
+
+
 
 }

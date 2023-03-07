@@ -3,10 +3,13 @@ nav
     background-color: var(--dark-blue) !important;
     z-index: 100;
     top: 0px;
+    font-weight: bolder;
 }
+
 :host{
     z-index: 100;
 }
+
 nav *
 {
     color: var(--peach) ;
@@ -28,6 +31,6 @@ nav *
 .mybut:hover,.mybut:active
 {
     background-color: var(--peach);
-    color: var(--dark-blue);
+    color: var(--bs-danger) !important;
     border-color: var(--peach);
 }

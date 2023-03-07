@@ -1,8 +1,8 @@
 <div  *ngIf="resumeModel" class="container-fluid">
     <div class="row">
-        <app-basic-header  class="col-12 p-0" [headerModel]="resumeModel['headers']"></app-basic-header>
+        <app-basic-header [style]="{backgroundColor:resumeOptions.headerBackgroundColor,color:resumeOptions.headerTextColor}"  class="col-12 p-0" [headerModel]="resumeModel['headers']"></app-basic-header>
         
-        <div dragula="sectiondrag"  [(dragulaModel)]="resumeModel['sections']" >
+        <div  dragula="sectiondrag" [style]="{backgroundColor:resumeOptions.bodyBackgroundColor,color:resumeOptions.bodyTextColor}"  class="p-0" [(dragulaModel)]="resumeModel['sections']" >
             <app-basic-section   *ngFor="let section of resumeModel['sections']" [sectionModel]="section" ></app-basic-section>
         </div>
     </div>

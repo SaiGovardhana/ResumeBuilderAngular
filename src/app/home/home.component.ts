@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit{
   
 
   ngOnInit(): void {
+    console.log("In Home Init")
     this.tinymce.update()
   }
 }

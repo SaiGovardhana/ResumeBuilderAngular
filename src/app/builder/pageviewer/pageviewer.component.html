@@ -22,10 +22,31 @@
 </div>
 
 
-<div *ngIf="state=='success'" class="d-flex viewportoverflowfix justify-content-center   m-5">
-    <div  class="page-container  ">
-        <app-basic-template [isDraggable]="isDraggable"  [style]="{'-ms-zoom':zoom.valueAsNumber/100,'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page shadow-lg " ></app-basic-template>
+<div *ngIf="state=='success'" [ngClass]="!isDraggable?'justify-content-center':'justify-content-between'" class="d-flex  my-5">
+    <div  class="page-container   px-5 ">
+        <app-basic-template [resumeOptions]="resumeOptions" [isDraggable]="isDraggable"  [style]="{'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page  shadow-lg " ></app-basic-template>
     </div>
+    
+    
+    <div *ngIf="isDraggable" class="pb-5 text-white sidebar bg-danger d-flex flex-column shadow-lg">
+      <h3 class="bg-white text-danger p-1">Resume Editor</h3>
+      <div  class="d-flex align-items-center flex-column"> 
+        <h4 class="text-center">Header</h4>
+        <h6 class="text-center">Background Color</h6>
+        <input [(ngModel)]="resumeOptions.headerBackgroundColor"   type="color">
+        <h6 class="text-center">Text Color</h6>
+        <input [(ngModel)]="resumeOptions.headerTextColor"   type="color">
+      </div>
+      <div  class="d-flex align-items-center  flex-column"> 
+          <h4 class="text-center mt-5">Sections</h4>
+          <h6 class="text-center">Background Color</h6>
+          <input [(ngModel)]="resumeOptions.bodyBackgroundColor"   type="color">
+          <h6 class="text-center">Text Color</h6>
+          <input [(ngModel)]="resumeOptions.bodyTextColor"   type="color">
+      </div>
+    </div>
+
+
 </div>
 
 

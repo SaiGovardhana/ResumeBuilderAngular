@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { DragulaService } from 'ng2-dragula';
-import { ResumeModel, SectionModel } from 'src/app/models/httpmodels';
+import { ResumeModel, ResumeOptionsModel, SectionModel } from 'src/app/models/httpmodels';
 import { TinyMCEService } from 'src/app/service/tinymce.service';
 import { BasicHeaderComponent } from '../../headers/basic-header/basic-header.component';
 import { BasicSectionModel, UserModel } from '../../models/Models';
@@ -23,6 +23,9 @@ export class BasicTemplateComponent implements OnInit,OnDestroy {
 
   @Input()
   isDraggable!:boolean;
+
+  @Input()
+    resumeOptions!:ResumeOptionsModel
 
   constructor(private dragula:DragulaService,private tiny:TinyMCEService)
   {
