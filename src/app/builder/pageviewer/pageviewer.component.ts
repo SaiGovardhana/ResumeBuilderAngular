@@ -24,8 +24,17 @@ export class PageviewerComponent implements OnInit,OnDestroy
   httpSubscription$!:Subscription
 
 
-
-  resumeOptions:ResumeOptionsModel={bodyBackgroundColor:'#ffffff',headerBackgroundColor:'#dc3545',headerTextColor:"#ffffff",bodyTextColor:'#000000'}
+  /**
+   * Default Options
+   */
+  resumeOptions:ResumeOptionsModel={
+    bodyBackgroundColor:'#ffffff',headerBackgroundColor:'#dc3545',
+    headerTextColor:"#ffffff",
+    bodyTextColor:'#000000',
+    showEmail:true,
+    showLocation:true,
+    showPhone:true
+  }
   @ViewChild('resume')
     resume!:BasicTemplateComponent
   constructor(private toast:ToastService,private tinymce:TinyMCEService,private resumeService:ResumeEndpointService,private router:Router)

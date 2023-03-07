@@ -6,6 +6,7 @@
     color: var(--peach);
     z-index: 99;
     overflow: hidden;
+    
 }
 
 .mybut,.mybut:hover
@@ -77,7 +78,7 @@ h6
   position: sticky;
   top:100px;
   height: fit-content;
-  
+ 
 }
 
 

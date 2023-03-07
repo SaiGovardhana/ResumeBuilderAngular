@@ -6,6 +6,10 @@ export type ResumeOptionsModel=
     bodyBackgroundColor:string;
     bodyTextColor:string;
     headerBackgroundColor:string,
-    headerTextColor:string
+    headerTextColor:string,
+    showEmail:boolean,
+    showPhone:boolean,
+    showLocation:boolean,
+    
 
 };

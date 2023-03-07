@@ -1,7 +1,6 @@
 import { Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { HeaderModel } from 'src/app/models/httpmodels';
-import { UserModel } from '../../models/Models';
+import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { HeaderModel, ResumeOptionsModel } from 'src/app/models/httpmodels';
 
 @Component({
   selector: 'app-basic-header',
@@ -12,6 +11,7 @@ import { UserModel } from '../../models/Models';
 export class BasicHeaderComponent implements OnInit {
   faEnvelope=faEnvelope
   faPhone=faPhone
+  faLocation=faLocationDot
   @Input()
   headerModel!:{[key:string]:HeaderModel}
 
@@ -23,6 +23,9 @@ export class BasicHeaderComponent implements OnInit {
 
   @ViewChildren('header',{read:ElementRef})
     headers!:QueryList<ElementRef>
+
+  @Input()
+    resumeOptions!:ResumeOptionsModel
 
   ngOnInit(): void {
   
