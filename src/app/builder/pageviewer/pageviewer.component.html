@@ -22,8 +22,8 @@
 </div>
 
 
-<div *ngIf="state=='success'" [ngClass]="!isDraggable?'justify-content-center':'justify-content-between'" class="d-flex  my-5">
-    <div  class="page-container   px-5 ">
+<div *ngIf="state=='success'" [ngClass]="!isDraggable?'justify-content-center':'justify-content-between'" class="d-flex ">
+    <div class="page-container m-5 flex-grow-0 ">
         <app-basic-template [resumeOptions]="resumeOptions" [isDraggable]="isDraggable"  [style]="{'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page  shadow-lg " ></app-basic-template>
     </div>
     
