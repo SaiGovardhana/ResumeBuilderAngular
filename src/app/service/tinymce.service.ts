@@ -22,7 +22,7 @@ export class TinyMCEService
     update()
     {
         tinymce.remove();
-        setTimeout(()=>tinymce.init(this.option),100);
+        setTimeout(()=>tinymce.init(this.option).catch(e=>console.log("Error")),100);
     }
     remove()
     {

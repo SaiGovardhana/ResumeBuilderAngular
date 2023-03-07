@@ -77,7 +77,8 @@ export class PageviewerComponent implements OnInit,OnDestroy
 
 
   ngOnInit(): void {
-    this.tinymce.update()
+    
+    
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
     this.resumeService.getResume(resumeId as string).subscribe
     (
@@ -88,7 +89,7 @@ export class PageviewerComponent implements OnInit,OnDestroy
         { 
           this.resumeModel=data["data"]?.resumeModel as ResumeModel
           this.state='success'
-
+          this.tinymce.update();
         }
         else
         {
