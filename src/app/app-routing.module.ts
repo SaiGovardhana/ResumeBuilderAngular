@@ -6,6 +6,7 @@ import { BuilderComponent } from './builder/builder.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { MyresumesComponent } from './myresumes/myresumes.component';
+import { PrintresumeComponent } from './printresume/printresume.component';
 import { LoggedInGuard } from './routeguards/LoggedInGuard';
 import { LoggedOutGuard } from './routeguards/LoggedOutGuard';
 import { SigninComponent } from './signin/signin.component';
@@ -18,8 +19,8 @@ const routes: Routes = [{path:"",pathMatch:"full",component:HomeComponent,canAct
 {path:'user/myResumes',component:MyresumesComponent,canActivate:[LoggedInGuard]},
 {path:'user/createResume',component:AddresumeComponent,canActivate:[LoggedInGuard]},
 {path:'showResume',component:BuilderComponent},
-{path:'user/addSubscription',component:AddsubscriptionComponent,canActivate:[LoggedInGuard]}
-
+{path:'user/addSubscription',component:AddsubscriptionComponent,canActivate:[LoggedInGuard]},
+{path:'printResume',component:PrintresumeComponent,canActivate:[LoggedInGuard]}
 ];
 
 @NgModule({

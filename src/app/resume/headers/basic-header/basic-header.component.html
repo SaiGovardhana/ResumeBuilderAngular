@@ -8,18 +8,18 @@
             <div class="col-12 mt-3 mb-0">
                 
                 <div  class="row justify-content-center">
-                        <h6 *ngIf="resumeOptions.showEmail" class="col-4 justify-content-center fw-bolder d-flex align-items-baseline">
+                        <div *ngIf="resumeOptions.showEmail" class="col-4 justify-content-center fw-bolder d-flex align-items-baseline">
                             <fa-icon class="me-2" [icon]="faEnvelope"></fa-icon>
-                           <div class="editable " id="email" #header [innerHTML]="headerModel['email']!=undefined?headerModel['email'].headerContent:'<h5>Email</h5>'"></div>
-                        </h6>
+                           <div class="editable " id="email" #header [innerHTML]="(headerModel['email']!=undefined?headerModel['email'].headerContent:'<h5>Email</h5>') | safeHtml"></div>
+                        </div>
 
                         <h6 *ngIf="resumeOptions.showPhone" class="col-4 fw-bolder justify-content-center d-flex align-items-baseline">
                             <fa-icon class="me-2" [icon]="faPhone"></fa-icon>
-                           <div class="editable " id="phone" #header [innerHTML]="headerModel['phone']!=undefined?headerModel['phone'].headerContent:'<h5>Phone</h5>'"></div>
+                           <div class="editable " id="phone" #header [innerHTML]="(headerModel['phone']!=undefined?headerModel['phone'].headerContent:'<h5>Phone</h5>') |safeHtml"></div>
                         </h6>
                         <h6 *ngIf="resumeOptions.showLocation" class="col-4 fw-bolder justify-content-center d-flex align-items-baseline">
                             <fa-icon class="me-2" [icon]="faLocation"></fa-icon>
-                           <div class="editable " id="location" #header [innerHTML]="headerModel['location']!=undefined?headerModel['location'].headerContent:'<h5>Location</h5>'"></div>
+                           <div class="editable " id="location" #header [innerHTML]="(headerModel['location']!=undefined?headerModel['location'].headerContent:'<h5>Location</h5>') | safeHtml"></div>
                         </h6>
                  </div>
             

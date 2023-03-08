@@ -28,6 +28,7 @@ import { MyresumesComponent } from './myresumes/myresumes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AddsubscriptionComponent } from './addsubscription/addsubscription.component';
+import { PrintresumeComponent } from './printresume/printresume.component';
 
 
 
@@ -49,6 +50,7 @@ import { AddsubscriptionComponent } from './addsubscription/addsubscription.comp
     AddresumeComponent,
     MyresumesComponent,
     AddsubscriptionComponent,
+    PrintresumeComponent,
 
   ],
   imports: [DragulaModule.forRoot(),

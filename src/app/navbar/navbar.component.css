@@ -34,3 +34,10 @@ nav *
     color: var(--bs-danger) !important;
     border-color: var(--peach);
 }
+
+@media print{
+
+    nav{
+        display: none !important;
+    }
+}

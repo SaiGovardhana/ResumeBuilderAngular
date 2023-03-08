@@ -14,7 +14,8 @@ import { BasicSectionComponent } from '../../sections/basic-section/basic-sectio
 export class BasicTemplateComponent implements OnInit,OnDestroy {
   @Input()
   resumeModel!:ResumeModel
-
+  @Input()
+    isPrint=false
   @ViewChild(BasicHeaderComponent)
     basicHeaderComponent!:BasicHeaderComponent
 

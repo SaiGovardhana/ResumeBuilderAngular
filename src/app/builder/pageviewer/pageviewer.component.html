@@ -16,7 +16,7 @@
   <div class="d-flex">
 
     <button (click)="addSection()" class="btn mybut mx-2">Add New Section</button>
-
+    <a class="btn mybut mx-2" [routerLink]="['/printResume']" [queryParams]="{resumeId:curResumeId}">Print</a>
     <button (click)="save()" class="btn mybut mx-2">Save</button>
   </div>
 </div>
@@ -24,7 +24,7 @@
 
 <div *ngIf="state=='success'" [ngClass]="!isDraggable?'justify-content-center':'justify-content-between'" class="d-flex ">
     <div class="page-container m-5 flex-grow-0 ">
-        <app-basic-template [resumeOptions]="resumeOptions" [isDraggable]="isDraggable"  [style]="{'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page  shadow-lg " ></app-basic-template>
+        <app-basic-template [isPrint]="false" [resumeOptions]="resumeOptions" [isDraggable]="isDraggable"  [style]="{'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page  shadow-lg " ></app-basic-template>
     </div>
     
     

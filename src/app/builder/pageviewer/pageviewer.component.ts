@@ -23,6 +23,7 @@ export class PageviewerComponent implements OnInit,OnDestroy
   resumeModel!:ResumeModel
   isDraggable=false;
   httpSubscription$!:Subscription
+  curResumeId=''
 
 
   /**
@@ -98,6 +99,8 @@ export class PageviewerComponent implements OnInit,OnDestroy
     
     
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
+    
+    this.curResumeId=resumeId as string
     this.resumeService.getResume(resumeId as string).subscribe
     (
 
