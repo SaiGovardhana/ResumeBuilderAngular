@@ -18,7 +18,8 @@ export class BasicSectionComponent  implements OnInit
   
   @ViewChild("sectioncontent",{read:ElementRef})
     sectionContent!:ElementRef
-
+  @Input()
+    sectionAlignment!:string
     constructor(private dragula:DragulaService)
     {
     
@@ -26,7 +27,7 @@ export class BasicSectionComponent  implements OnInit
 
     ngOnInit(): void 
     {
-      
+       
     } 
     serialize():SectionModel
     { 

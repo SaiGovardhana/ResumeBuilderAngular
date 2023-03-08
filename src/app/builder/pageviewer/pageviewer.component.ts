@@ -35,7 +35,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
     bodyTextColor:'#000000',
     showEmail:true,
     showLocation:true,
-    showPhone:true
+    showPhone:true,
+    headerAlignment:'vertical',
+    sectionAlignment:'vertical'
   }
   @ViewChild('resume')
     resume!:BasicTemplateComponent
@@ -109,7 +111,12 @@ export class PageviewerComponent implements OnInit,OnDestroy
         if(data['success'])
         { if(data['data']?.resumeModel?.resumeOptions)
             this.resumeOptions=data['data']?.resumeModel?.resumeOptions;
-
+            if(this.resumeOptions.sectionAlignment==null)
+              this.resumeOptions.sectionAlignment='vertical';
+            
+            if(this.resumeOptions.headerAlignment==null)
+              this.resumeOptions.headerAlignment='vertical'
+          
           this.resumeModel=data["data"]?.resumeModel as ResumeModel
           this.state='success'
           this.tinymce.update();

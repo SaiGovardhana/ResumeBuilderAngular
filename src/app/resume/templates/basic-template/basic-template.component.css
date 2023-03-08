@@ -1,4 +1,7 @@
-:host
+@media print {
+    :host
 {
-    height: 100%;
+    height: 100vh;
 }
+}
+

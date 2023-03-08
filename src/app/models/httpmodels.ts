@@ -10,6 +10,8 @@ export type ResumeOptionsModel=
     showEmail:boolean,
     showPhone:boolean,
     showLocation:boolean,
+    sectionAlignment:string,
+    headerAlignment:string
     
 
 };

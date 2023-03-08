@@ -30,7 +30,9 @@ export class PrintresumeComponent {
     bodyTextColor:'#000000',
     showEmail:true,
     showLocation:true,
-    showPhone:true
+    showPhone:true,
+    sectionAlignment:'vertical',
+    headerAlignment:'vertical'
   }
   @ViewChild('resume')
     resume!:BasicTemplateComponent
@@ -58,7 +60,11 @@ export class PrintresumeComponent {
         if(data['success'])
         { if(data['data']?.resumeModel?.resumeOptions)
             this.resumeOptions=data['data']?.resumeModel?.resumeOptions;
-
+            if(this.resumeOptions.sectionAlignment==null)
+            this.resumeOptions.sectionAlignment='vertical';
+          
+          if(this.resumeOptions.headerAlignment==null)
+            this.resumeOptions.headerAlignment='vertical'
           this.resumeModel=data["data"]?.resumeModel as ResumeModel
           this.state='success'
           this.tinymce.remove();

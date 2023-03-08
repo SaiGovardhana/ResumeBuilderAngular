@@ -11,7 +11,7 @@
         <input (input)="switchMode()"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
         
       </div>
-      <h6 class="mx-2">Drag Mode</h6>
+      <h6 class="mx-2">Drag/Block Mode</h6>
     </div>
   <div class="d-flex">
 
@@ -23,12 +23,10 @@
 
 
 <div *ngIf="state=='success'" [ngClass]="!isDraggable?'justify-content-center':'justify-content-between'" class="d-flex ">
-    <div class="page-container m-5 flex-grow-0 ">
-        <app-basic-template [isPrint]="false" [resumeOptions]="resumeOptions" [isDraggable]="isDraggable"  [style]="{'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page  shadow-lg " ></app-basic-template>
-    </div>
+
     
     
-    <div *ngIf="isDraggable" class="pb-5 text-white sidebar bg-danger d-flex flex-column shadow-lg">
+    <div style="width: 30vw; height: 500px;overflow: auto;" *ngIf="isDraggable" class="p-3 mt-2 text-center text-white sidebar bg-danger d-flex flex-column shadow-lg">
             <ng-container *ngIf="user.getCurrentUser().isPremium;else notPremium">
             <h3 class="bg-white text-danger p-1">Resume Editor</h3>
             <div  class="d-flex align-items-center flex-column"> 
@@ -54,6 +52,11 @@
               </div>
 
               <h4 class="text-center text-decoration-underline">Header</h4>
+              <h6 class="tex-center">Header Alignment</h6>
+              <select class="form-select " [(ngModel)]="resumeOptions.headerAlignment">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+              </select>
               <h6 class="text-center">Background Color</h6>
               <input [(ngModel)]="resumeOptions.headerBackgroundColor"   type="color">
               <h6 class="text-center">Text Color</h6>
@@ -61,10 +64,16 @@
             </div>
             <div  class="d-flex align-items-center  flex-column"> 
                 <h4 class="text-center text-decoration-underline">Sections</h4>
+                <h6 class="tex-center">Section Alignment</h6>
+                <select class="form-select " [(ngModel)]="resumeOptions.sectionAlignment">
+                  <option value="horizontal">Horizontal</option>
+                  <option value="vertical">Vertical</option>
+                </select>
                 <h6 class="text-center">Background Color</h6>
                 <input [(ngModel)]="resumeOptions.bodyBackgroundColor"   type="color">
                 <h6 class="text-center">Text Color</h6>
                 <input [(ngModel)]="resumeOptions.bodyTextColor"   type="color">
+                
             </div>
     </ng-container>
     <ng-template #notPremium>
@@ -72,6 +81,10 @@
       <a routerLink="/user/addSubscription" class="btn btn-outline-danger mybut mx-4">Upgrade Right Now</a>
     </ng-template>
     </div>
+
+    <div class="page-container m-5 flex-grow-0 ">
+      <app-basic-template [ngStyle]="{backgroundColor:resumeOptions.bodyBackgroundColor}" [isPrint]="false" [resumeOptions]="resumeOptions" [isDraggable]="isDraggable"  [style]="{'scale':zoom.valueAsNumber/100}" #resume [resumeModel]="resumeModel" class="page   shadow-lg " ></app-basic-template>
+  </div>
 
 
 </div>

@@ -15,4 +15,4 @@
   </ng-container>
 
  <h3 *ngIf="state=='success'" class="dontPrint mt-5 mb-5 text-center text-danger"> You Can Print Your By Using The Browsers Print Option</h3>
-<app-basic-template [isPrint]="true" *ngIf="state=='success'"  [resumeOptions]="resumeOptions"    #resume [resumeModel]="resumeModel" class="page mx-auto" ></app-basic-template>
+<app-basic-template [ngStyle]="{backgroundColor:resumeOptions.bodyBackgroundColor}"  [isPrint]="true" *ngIf="state=='success'"  [resumeOptions]="resumeOptions"    #resume [resumeModel]="resumeModel" class="page mx-auto" ></app-basic-template>
