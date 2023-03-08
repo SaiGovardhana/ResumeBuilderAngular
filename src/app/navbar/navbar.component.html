@@ -8,8 +8,16 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 
                 <div *ngIf="(authStore.currentUser$ | async) as curUser" class="ms-auto navbar-nav">
-                    
+
                     <ng-container *ngIf="curUser.loggedIn else NotLoggedIn">
+                      <div class="d-flex border-3 border p-1  align-items-center mx-3" *ngIf="curUser.isPremium">
+                        Premium<i class="fa-solid mx-2 fa-crown"></i>
+                        {{curUser.aiResumesLeft}} 
+                      </div>
+
+                      <div class="d-flex border-3 border p-1  align-items-center mx-3" *ngIf="!curUser.isPremium">
+                        <a clas="nav-link" [routerLink]="'/user/addSubscription'">Upgrade Right Now</a>
+                      </div>
                         <a *ngFor="let nav of loggedInNavs" class="nav-link" [routerLink]="nav.link" >{{nav.name}}</a>
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

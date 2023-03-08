@@ -13,8 +13,15 @@ const cards=[{
   description:"View All Your Resumes And Edit Them",
   icon:"fa-file",
   link:"/user/myResumes"
-}
+},
+{
+  title:"Add Subscription",
+  description:"Add A Subscription",
+  icon:"fa-dollar",
+  link:"/user/addSubscription"
+},
 ];
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

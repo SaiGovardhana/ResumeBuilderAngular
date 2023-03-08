@@ -57,8 +57,8 @@ export class AddresumeComponent implements OnInit,OnDestroy
             setTimeout(()=>this.router.navigateByUrl('/dashboard'),200);
           }
           else
-          {
-            this.modalComponent.message="Couldn't Add Resume";
+          { 
+            this.modalComponent.message=data.message;
             this.modalComponent.open('failure')
           }
         });
@@ -71,11 +71,12 @@ export class AddresumeComponent implements OnInit,OnDestroy
             if(data["success"])
             { this.modalComponent.message="Added The Resume";
               this.modalComponent.open('success');
+              this.authService.refresh()
               setTimeout(()=>this.router.navigateByUrl('/dashboard'),200);
             }
             else
             {
-              this.modalComponent.message="Couldn't Add Resume";
+              this.modalComponent.message=data.message;
               this.modalComponent.open('failure')
             }
           });

@@ -29,42 +29,48 @@
     
     
     <div *ngIf="isDraggable" class="pb-5 text-white sidebar bg-danger d-flex flex-column shadow-lg">
-      <h3 class="bg-white text-danger p-1">Resume Editor</h3>
-      <div  class="d-flex align-items-center flex-column"> 
-        <h4 class="text-center text-decoration-underline">Contact Info</h4>
-        <h6>Show Email</h6>
-        <div class="form-check  form-switch">
-        
-          <input [(ngModel)]="resumeOptions.showEmail"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          
-        </div>
-        <h6>Show Phone</h6>
-        <div class="form-check  form-switch">
-        
-          <input [(ngModel)]="resumeOptions.showPhone"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          
-        </div>
+            <ng-container *ngIf="user.getCurrentUser().isPremium;else notPremium">
+            <h3 class="bg-white text-danger p-1">Resume Editor</h3>
+            <div  class="d-flex align-items-center flex-column"> 
+              <h4 class="text-center text-decoration-underline">Contact Info</h4>
+              <h6>Show Email</h6>
+              <div class="form-check  form-switch">
+              
+                <input [(ngModel)]="resumeOptions.showEmail"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                
+              </div>
+              <h6>Show Phone</h6>
+              <div class="form-check  form-switch">
+              
+                <input [(ngModel)]="resumeOptions.showPhone"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                
+              </div>
 
-        <h6 >Show Location</h6>
-        <div class="form-check  form-switch">
-        
-          <input [(ngModel)]="resumeOptions.showLocation"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          
-        </div>
+              <h6 >Show Location</h6>
+              <div class="form-check  form-switch">
+              
+                <input [(ngModel)]="resumeOptions.showLocation"  class="form-check-input form-switch form-switch-xl my-auto" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                
+              </div>
 
-        <h4 class="text-center text-decoration-underline">Header</h4>
-        <h6 class="text-center">Background Color</h6>
-        <input [(ngModel)]="resumeOptions.headerBackgroundColor"   type="color">
-        <h6 class="text-center">Text Color</h6>
-        <input [(ngModel)]="resumeOptions.headerTextColor"   type="color">
-      </div>
-      <div  class="d-flex align-items-center  flex-column"> 
-          <h4 class="text-center text-decoration-underline">Sections</h4>
-          <h6 class="text-center">Background Color</h6>
-          <input [(ngModel)]="resumeOptions.bodyBackgroundColor"   type="color">
-          <h6 class="text-center">Text Color</h6>
-          <input [(ngModel)]="resumeOptions.bodyTextColor"   type="color">
-      </div>
+              <h4 class="text-center text-decoration-underline">Header</h4>
+              <h6 class="text-center">Background Color</h6>
+              <input [(ngModel)]="resumeOptions.headerBackgroundColor"   type="color">
+              <h6 class="text-center">Text Color</h6>
+              <input [(ngModel)]="resumeOptions.headerTextColor"   type="color">
+            </div>
+            <div  class="d-flex align-items-center  flex-column"> 
+                <h4 class="text-center text-decoration-underline">Sections</h4>
+                <h6 class="text-center">Background Color</h6>
+                <input [(ngModel)]="resumeOptions.bodyBackgroundColor"   type="color">
+                <h6 class="text-center">Text Color</h6>
+                <input [(ngModel)]="resumeOptions.bodyTextColor"   type="color">
+            </div>
+    </ng-container>
+    <ng-template #notPremium>
+      <h4 class="mt-5 text-center p-5">Upgrade To premium <br>For Full Editing Access</h4>
+      <a routerLink="/user/addSubscription" class="btn btn-outline-danger mybut mx-4">Upgrade Right Now</a>
+    </ng-template>
     </div>
 
 

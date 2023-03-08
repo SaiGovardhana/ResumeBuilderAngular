@@ -7,6 +7,7 @@ import { BasicHeaderComponent } from 'src/app/resume/headers/basic-header/basic-
 import { BasicSectionModel, UserModel } from 'src/app/resume/models/Models';
 import { BasicSectionComponent } from 'src/app/resume/sections/basic-section/basic-section.component';
 import { BasicTemplateComponent } from 'src/app/resume/templates/basic-template/basic-template.component';
+import { AuthService } from 'src/app/service/auth.service';
 import { ResumeEndpointService } from 'src/app/service/resumeEndpoint.service';
 import { TinyMCEService } from 'src/app/service/tinymce.service';
 import { ToastService } from 'src/app/service/toast.service';
@@ -37,7 +38,7 @@ export class PageviewerComponent implements OnInit,OnDestroy
   }
   @ViewChild('resume')
     resume!:BasicTemplateComponent
-  constructor(private toast:ToastService,private tinymce:TinyMCEService,private resumeService:ResumeEndpointService,private router:Router)
+  constructor(private toast:ToastService,public user:AuthService,private tinymce:TinyMCEService,private resumeService:ResumeEndpointService,private router:Router)
   {
 
   }
