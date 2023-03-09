@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import {  Component, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ResumeModel, ResumeOptionsModel } from '../models/httpmodels';
@@ -13,7 +13,7 @@ import { ToastService } from '../service/toast.service';
   templateUrl: './printresume.component.html',
   styleUrls: ['./printresume.component.css','../builder/pageviewer/pageviewer.component.css']
 })
-export class PrintresumeComponent {
+export class PrintresumeComponent implements OnDestroy{
   state='loading'
   resumeModel!:ResumeModel
   email=""
@@ -32,7 +32,7 @@ export class PrintresumeComponent {
     showLocation:true,
     showPhone:true,
     sectionAlignment:'vertical',
-    headerAlignment:'vertical'
+    headerAlignment:'horizontal'
   }
   @ViewChild('resume')
     resume!:BasicTemplateComponent
@@ -42,14 +42,9 @@ export class PrintresumeComponent {
   }
 
 
-
-  
-
-
-
   ngOnInit(): void {
     
-   
+    
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
     this.curResumeId=resumeId as string
     this.email=this.user.getCurrentUser().email
@@ -65,7 +60,7 @@ export class PrintresumeComponent {
             this.resumeOptions.sectionAlignment='vertical';
           
           if(this.resumeOptions.headerAlignment==null)
-            this.resumeOptions.headerAlignment='vertical'
+            this.resumeOptions.headerAlignment='horizontal'
           this.resumeModel=data["data"]?.resumeModel as ResumeModel
           this.state='success'
           this.tinymce.remove();
@@ -83,7 +78,7 @@ export class PrintresumeComponent {
     if(this.httpSubscription$!=null)
       this.httpSubscription$.unsubscribe()
     this.toast.dismiss()
-  }
+}
 
   send()
   { let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
@@ -101,11 +96,11 @@ export class PrintresumeComponent {
         }
       }
     );
-
   }
-
-
-
-
-
 }
+
+
+
+
+
+

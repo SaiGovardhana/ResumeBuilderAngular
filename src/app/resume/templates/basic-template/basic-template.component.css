@@ -1,7 +1,8 @@
 @media print {
     :host
 {
-    height: 100vh;
+    height:100vh;
+    
 }
 }
 

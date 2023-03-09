@@ -44,3 +44,7 @@ body
     filter: alpha(opacity=20);
   }
 
+@media print
+{
+
+}

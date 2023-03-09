@@ -11,7 +11,8 @@ export type ResumeOptionsModel=
     showPhone:boolean,
     showLocation:boolean,
     sectionAlignment:string,
-    headerAlignment:string
+    headerAlignment:string,
+    profileImage?:null|string|undefined
     
 
 };

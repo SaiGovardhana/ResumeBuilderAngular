@@ -1,10 +1,44 @@
+<!--Start Of Image Cropper-->
+<ng-template #modal>
+    <div class="d-flex p-3 flex-column">
+      <div
+        class="h2 text-danger text-center border-bottom border-3 border-danger">
+        Crop Image
+      </div>
+      <image-cropper
+        
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="3 / 3"
+        format="png"
+        (imageCropped)="imageCropped($event)"
 
+      ></image-cropper>
+      <div class="d-flex justify-content-evenly">
+        <button (click)="saveImage()" class="btn btn-outline-success">Save</button>
+        <button (click)="exitModal()" class="btn btn-outline-danger">Cancel</button>
+      </div>
+    </div>
+  </ng-template>
+<!--End Of Image Cropper-->
     <div *ngIf="resumeOptions.headerAlignment=='vertical'" (click)="serialize()"  class="container-fluid px-3 pt-3 basic-header">
         <div class="row">
             <div class="col-12">
                 <div #header *ngIf="headerModel['name']" class="editable" id="name" [innerHTML]="headerModel['name'].headerContent | safeHtml"></div>
                 <div #header *ngIf="headerModel['profession']" class="editable" id="profession" [innerHTML]="headerModel['profession'].headerContent| safeHtml"></div>
             </div>
+
+            <div class="col-12 container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                        <label class="d-flex" >
+                        <input accept="image/*" type="file" (change)="fileChangeEvent($event)" style="display: none;" />
+                        <img  #profile  [src]="resumeOptions.profileImage" style="width: 100% !important;height: auto !important;" class="img-fluid img rounded-circle" alt="Responsive image">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 container-fluid mt-3 mb-0">
                 
                 <div  class="row justify-content-center">

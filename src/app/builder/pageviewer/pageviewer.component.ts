@@ -36,8 +36,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
     showEmail:true,
     showLocation:true,
     showPhone:true,
-    headerAlignment:'vertical',
-    sectionAlignment:'vertical'
+    headerAlignment:'horizontal',
+    sectionAlignment:'vertical',
+    profileImage:'assets/images.jpeg'
   }
   @ViewChild('resume')
     resume!:BasicTemplateComponent
@@ -116,8 +117,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
               this.resumeOptions.sectionAlignment='vertical';
             
             if(this.resumeOptions.headerAlignment==null)
-              this.resumeOptions.headerAlignment='vertical'
-          
+              this.resumeOptions.headerAlignment='horizontal'
+            if(this.resumeOptions.profileImage==null)
+            this.resumeOptions.profileImage='assets/images.jpeg'
           this.resumeModel=data["data"]?.resumeModel as ResumeModel
           this.state='success'
           this.tinymce.update();

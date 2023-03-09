@@ -30,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AddsubscriptionComponent } from './addsubscription/addsubscription.component';
 import { PrintresumeComponent } from './printresume/printresume.component';
 import { PuppeterprintComponent } from './puppeterprint/puppeterprint.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 
@@ -64,7 +65,8 @@ import { PuppeterprintComponent } from './puppeterprint/puppeterprint.component'
     NgbPopoverModule,FormsModule,ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({maxOpened:1,newestOnTop:true,autoDismiss:true})
+    ToastrModule.forRoot({maxOpened:1,newestOnTop:true,autoDismiss:true}),
+    ImageCropperModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

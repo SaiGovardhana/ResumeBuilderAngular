@@ -13,7 +13,7 @@
       <h1 class="h1  text-center mt-">Seems Like An Error :(</h1>
   </div>
   </ng-container>
-<ng-container *ngIf="state=='success'">
+<div class="main-container"  *ngIf="state=='success'">
   <h3  class="dontPrint mt-5 mb-5 text-center text-danger"> You Can Print Your By Using The Browsers Print Option</h3>
   <div class="dontPrint container-fluid">
     <div class="row justify-content-center align-items-center">
@@ -31,6 +31,8 @@
     <button (click)="send()" class="mx-auto col-2 m-4  btn btn-danger"> Send To Email</button>
   </div>
   </div>
+  
+  <app-basic-template  [ngStyle]="{backgroundColor:resumeOptions.bodyBackgroundColor}"  [isPrint]="true"   [resumeOptions]="resumeOptions"    #resume [resumeModel]="resumeModel" class="page mx-auto " ></app-basic-template>
+ 
+</div>
 
-  <app-basic-template [ngStyle]="{backgroundColor:resumeOptions.bodyBackgroundColor}"  [isPrint]="true"   [resumeOptions]="resumeOptions"    #resume [resumeModel]="resumeModel" class="page mx-auto" ></app-basic-template>
-</ng-container>
