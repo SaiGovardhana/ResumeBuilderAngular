@@ -57,8 +57,9 @@ export class PageviewerComponent implements OnInit,OnDestroy
   {
 
     this.isDraggable=!this.isDraggable
+    this.resumeModel=this.resume.serialize()
     if(this.isDraggable)
-    { this.resumeModel=this.resume.serialize()
+    { 
       this.toast.showInfo("Dragging Enabled","You Can Now Drag Section Components For Rearrangment!");
       this.tinymce.remove();
     }

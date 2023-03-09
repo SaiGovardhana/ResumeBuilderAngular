@@ -20,6 +20,8 @@ export class BasicSectionComponent  implements OnInit
     sectionContent!:ElementRef
   @Input()
     sectionAlignment!:string
+
+
     constructor(private dragula:DragulaService)
     {
     

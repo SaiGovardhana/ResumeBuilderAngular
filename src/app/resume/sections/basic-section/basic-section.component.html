@@ -11,3 +11,8 @@
     <div #sectioncontent  class="editable col-8" [innerHTML]="sectionModel.sectionContent | safeHtml"></div>
   </div>
 </div>
+
+<div *ngIf="sectionAlignment=='half'"  class="p-3 container-fluid" >
+  <div #sectionheader [id]="sectionModel.name" class="editable" [innerHTML]="sectionModel.headerContent| safeHtml" ></div>
+  <div #sectioncontent  class="editable" [innerHTML]="sectionModel.sectionContent | safeHtml"></div>
+</div>
