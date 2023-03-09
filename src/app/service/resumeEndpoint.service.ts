@@ -50,4 +50,10 @@ export class ResumeEndpointService
             return this.http.post<{success:boolean}>('/api/resume/updateResume',{resumeId:resumeId,resumeModel:resumeModel})
                 .pipe(catchError(err=>of({success:false})));
         }
+
+        sendResumeToMail(resumeId:string,email:string):Observable<{success:boolean}>
+        {
+            return this.http.post<{success:boolean,message:string}>('/api/resume/sendToMail',{resumeId:resumeId,email:email})
+                .pipe(catchError(err=>of({success:false,message:"Fatal Error Occured!"})));
+        }
 }

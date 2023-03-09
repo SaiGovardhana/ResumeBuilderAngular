@@ -9,14 +9,13 @@ import { TinyMCEService } from '../service/tinymce.service';
 import { ToastService } from '../service/toast.service';
 
 @Component({
-  selector: 'app-printresume',
-  templateUrl: './printresume.component.html',
-  styleUrls: ['./printresume.component.css','../builder/pageviewer/pageviewer.component.css']
+  selector: 'app-puppeterprint',
+  templateUrl: './puppeterprint.component.html',
+  styleUrls: ['./puppeterprint.component.css','../builder/pageviewer/pageviewer.component.css']
 })
-export class PrintresumeComponent {
-  state='loading'
+export class PuppeterprintComponent {
   resumeModel!:ResumeModel
-  email=""
+  state='loading'
   httpSubscription$!:Subscription
 
   curResumeId:string=""
@@ -52,7 +51,6 @@ export class PrintresumeComponent {
    
     let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
     this.curResumeId=resumeId as string
-    this.email=this.user.getCurrentUser().email
     this.resumeService.getResume(resumeId as string).subscribe
     (
 
@@ -84,26 +82,6 @@ export class PrintresumeComponent {
       this.httpSubscription$.unsubscribe()
     this.toast.dismiss()
   }
-
-  send()
-  { let resumeId=this.router.routerState.snapshot.root.queryParamMap.get("resumeId");
-    this.toast.showInfo("Sending Mail","Please Wait For Respone")
-    this.httpSubscription$=this.resumeService.sendResumeToMail(resumeId as string,this.email).subscribe(
-      (data)=>
-      {
-        if(data.success)
-        {
-          this.toast.showSuccess("Mail Sent","Mail Has Been Sent");
-        }
-        else
-        {
-          this.toast.showFailure("Mail Failed","Couldn't Send Mail")
-        }
-      }
-    );
-
-  }
-
 
 
 

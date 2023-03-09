@@ -13,6 +13,24 @@
       <h1 class="h1  text-center mt-">Seems Like An Error :(</h1>
   </div>
   </ng-container>
+<ng-container *ngIf="state=='success'">
+  <h3  class="dontPrint mt-5 mb-5 text-center text-danger"> You Can Print Your By Using The Browsers Print Option</h3>
+  <div class="dontPrint container-fluid">
+    <div class="row justify-content-center align-items-center">
+    <div class="d-flex col-4 flex-row align-items-center mb-4">
+      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+      <div class="form-floating flex-fill mb-0">
+        <input  placement="end top"  [(ngModel)]="email"
+        type="email" id="email" placeholder="Your Email" class="form-control shadow" />
+        <label class="form-label" for="email">Your Email</label>
+      </div>
+    </div>
+    
+  </div>
+  <div class="row justify-content-center">
+    <button (click)="send()" class="mx-auto col-2 m-4  btn btn-danger"> Send To Email</button>
+  </div>
+  </div>
 
- <h3 *ngIf="state=='success'" class="dontPrint mt-5 mb-5 text-center text-danger"> You Can Print Your By Using The Browsers Print Option</h3>
-<app-basic-template [ngStyle]="{backgroundColor:resumeOptions.bodyBackgroundColor}"  [isPrint]="true" *ngIf="state=='success'"  [resumeOptions]="resumeOptions"    #resume [resumeModel]="resumeModel" class="page mx-auto" ></app-basic-template>
+  <app-basic-template [ngStyle]="{backgroundColor:resumeOptions.bodyBackgroundColor}"  [isPrint]="true"   [resumeOptions]="resumeOptions"    #resume [resumeModel]="resumeModel" class="page mx-auto" ></app-basic-template>
+</ng-container>

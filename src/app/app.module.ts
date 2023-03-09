@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AddsubscriptionComponent } from './addsubscription/addsubscription.component';
 import { PrintresumeComponent } from './printresume/printresume.component';
+import { PuppeterprintComponent } from './puppeterprint/puppeterprint.component';
 
 
 
@@ -51,6 +52,7 @@ import { PrintresumeComponent } from './printresume/printresume.component';
     MyresumesComponent,
     AddsubscriptionComponent,
     PrintresumeComponent,
+    PuppeterprintComponent,
 
   ],
   imports: [DragulaModule.forRoot(),
