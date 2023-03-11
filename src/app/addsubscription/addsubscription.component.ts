@@ -23,7 +23,7 @@ export class AddsubscriptionComponent implements OnDestroy{
   }
 
   submit(subLevel:number)
-  {
+  { this.modal.open('loading');
     this.httpSubscription =this.authService.addSubscription(subLevel)
     .subscribe(
       (data)=>

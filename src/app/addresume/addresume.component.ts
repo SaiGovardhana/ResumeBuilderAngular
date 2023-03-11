@@ -64,7 +64,7 @@ export class AddresumeComponent implements OnInit,OnDestroy
         });
       ;}
       else
-      {
+      { this.modalComponent.open('loading');
         this.httpSubscription$=this.resumeService.createResumeOpenAI(this.resumeName.value as string,this.resumeDescription.nativeElement.value as string)
         .subscribe(data=>
           {
